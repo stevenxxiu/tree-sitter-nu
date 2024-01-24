@@ -2,7 +2,6 @@
 ;;; keywords
 [
     "def"
-    "def-env"
     "alias"
     "export-env"
     "export"
@@ -256,7 +255,7 @@
   ["." "?"] @punctuation.delimiter
 ) @variable.parameter
 
-(val_variable 
+(val_variable
   "$" @variable.parameter
   [
    (identifier) @namespace
@@ -276,7 +275,7 @@
 (collection_type
     ["record" "table"] @type.enum
     "<" @punctuation.bracket
-    key: (_) @variable.parameter 
+    key: (_) @variable.parameter
     ["," ":"] @punctuation.delimiter
     ">" @punctuation.bracket
 )

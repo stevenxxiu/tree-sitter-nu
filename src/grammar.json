@@ -1386,17 +1386,15 @@
           ]
         },
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "STRING",
-              "value": "def"
-            },
-            {
-              "type": "STRING",
-              "value": "def-env"
-            }
-          ]
+          "type": "STRING",
+          "value": "def"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "long_flag"
+          }
         },
         {
           "type": "FIELD",
@@ -8814,15 +8812,6 @@
                 "content": {
                   "type": "STRING",
                   "value": "def"
-                },
-                "named": true,
-                "value": "identifier"
-              },
-              {
-                "type": "ALIAS",
-                "content": {
-                  "type": "STRING",
-                  "value": "def-env"
                 },
                 "named": true,
                 "value": "identifier"

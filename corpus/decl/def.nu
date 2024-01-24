@@ -41,15 +41,52 @@ export def test [] {}
     (block)))
 
 ======
-def-env-001-smoke-test
+def-flags-001
 ======
 
-def-env test [] {}
+def --env test1 [] {}
+def --wrapped test2 [] {}
+def --env --wrapped test3 [] {}
+def --wrapped --env test4 [] {}
 
 -----
 
 (nu_script
   (decl_def
+    (long_flag)
+    (cmd_identifier)
+    (parameter_bracks)
+    (block))
+  (decl_def
+    (long_flag)
+    (cmd_identifier)
+    (parameter_bracks)
+    (block))
+  (decl_def
+    (long_flag)
+    (long_flag)
+    (cmd_identifier)
+    (parameter_bracks)
+    (block))
+  (decl_def
+    (long_flag)
+    (long_flag)
+    (cmd_identifier)
+    (parameter_bracks)
+    (block))
+)
+
+======
+def-env-001-smoke-test
+======
+
+def --env test [] {}
+
+-----
+
+(nu_script
+  (decl_def
+    (long_flag)
     (cmd_identifier)
     (parameter_bracks)
     (block)))
@@ -58,12 +95,13 @@ def-env test [] {}
 def-env-004-with-one-return-type
 ======
 
-def-env test []: nothing -> string {}
+def --env test []: nothing -> string {}
 
 -----
 
 (nu_script
   (decl_def
+    (long_flag)
     (cmd_identifier)
     (parameter_bracks)
     (returns
@@ -75,12 +113,13 @@ def-env test []: nothing -> string {}
 def-env-005-with-multiple-return-types
 ======
 
-def-env test []: [nothing -> string, nothing -> int] {}
+def --env test []: [nothing -> string, nothing -> int] {}
 
 -----
 
 (nu_script
   (decl_def
+    (long_flag)
     (cmd_identifier)
     (parameter_bracks)
     (returns
@@ -94,12 +133,13 @@ def-env test []: [nothing -> string, nothing -> int] {}
 def-env-006-with-return-type-complex
 ======
 
-def-env test []: nothing -> record<a: string, b: int> {}
+def --env test []: nothing -> record<a: string, b: int> {}
 
 -----
 
 (nu_script
   (decl_def
+    (long_flag)
     (cmd_identifier)
     (parameter_bracks)
     (returns
